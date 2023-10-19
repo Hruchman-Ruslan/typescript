@@ -1,10 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+
+//
+import add from "./module-01/addNumber";
+import greet from "./module-01/person";
+//
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  //  check;
+
+  const checkAdd = add(1, 2);
+  // const check = add("1", "1");
+  console.log(checkAdd);
+
+  const checkPerson = { firstName: "John", lastName: "Doe" };
+  // const checkPerson = { name: "John" };
+  console.log(greet(checkPerson));
+  //  check;
 
   return (
     <>
@@ -29,7 +45,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
