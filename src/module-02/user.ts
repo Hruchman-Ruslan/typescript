@@ -105,4 +105,49 @@ export { arrUsers };
 
 // Using the any type undermines TypeScript's advantages, such as static typing and type checking during compilation.
 
+// let notSure: any = 4;
+
+// notSure = "maybe a string instead";
+// notSure = false;
+// notSure = {};
+
+// const num: number = notSure;
+
+// Unknown
+
+// let notSure: unknown = 4;
+
+// notSure = "maybe a string instead";
+// notSure = false;
+// notSure = {};
+
+// const num: number = notSure;
+
 // export { arrAny };
+// export { num };
+
+// step-08
+
+// Tuple
+
+const tupleType: [string, boolean] = ["hello", true]; // OK
+// const tupleType: [string, boolean] = [true, "hello"]; // Error.
+// const tupleType: [string, boolean] = ["hello", true, true]; // Error.
+
+const date: [number, number, number] = [7, 11, 2023];
+
+export { tupleType, date };
+
+// We have an error
+
+// let fixed: [string, number] = ["Text", 10];
+
+// fixed.push("Add this text");
+
+// export { fixed };
+
+// fixed error
+
+const tuple: [string, ...number[]] = ["hello", 42, 100, 200]; // OK
+
+export { tuple };

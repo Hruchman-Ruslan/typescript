@@ -11,8 +11,13 @@ import {
   arrNumber,
   arrString,
   arrUsers,
+  date,
+  // fixed,
   matrix,
+  // num,
   numbers,
+  tuple,
+  tupleType,
   user,
   userBill,
   userBob,
@@ -59,6 +64,12 @@ function App() {
   // step-07
   // console.log("arrAny", arrAny);
   // Using the any type undermines TypeScript's advantages, such as static typing and type checking during compilation.
+  // console.log("num", num);
+  // step-08
+  console.log("tupleType", tupleType);
+  console.log("date", date);
+  // console.log("fixed", fixed);
+  console.log("tuple", tuple);
   //  check;
 
   return (
