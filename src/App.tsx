@@ -7,15 +7,25 @@ import "./App.css";
 import add from "./module-01/addNumber";
 import greet from "./module-01/person";
 import {
+  Role,
+  answer,
   // arrAny,
   arrNumber,
   arrString,
   arrUsers,
+  ceo,
+  combine,
   date,
   // fixed,
   matrix,
+  mixedType,
+  myButtonStyleLarge,
+  myButtonStyleMedium,
+  myButtonStyleSmall,
   // num,
   numbers,
+  status,
+  statusCode,
   tuple,
   tupleType,
   user,
@@ -24,6 +34,7 @@ import {
   userInterface,
   userNameLikeNumber,
   users,
+  value,
 } from "./module-02/user";
 //
 
@@ -70,6 +81,23 @@ function App() {
   console.log("date", date);
   // console.log("fixed", fixed);
   console.log("tuple", tuple);
+  // step-09
+  console.log("Role", Role);
+  console.log("enum value", Role[Role.ADMIN]);
+  console.log("status", status);
+  console.log("statusCode", statusCode);
+  // step-10
+  console.log("mixedType", mixedType);
+  console.log("combine", combine(5, 5));
+  console.log("combineToString", combine("Hello", "world"));
+  // step-11
+  console.log("ceo", ceo);
+  // step-12
+  console.log("value", value);
+  console.log("answer", answer);
+  console.log("myButtonStyleSmall", myButtonStyleSmall);
+  console.log("myButtonStyleMedium", myButtonStyleMedium);
+  console.log("myButtonStyleLarge", myButtonStyleLarge);
   //  check;
 
   return (
