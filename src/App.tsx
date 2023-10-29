@@ -36,6 +36,18 @@ import {
   users,
   value,
 } from "./module-02/user";
+import {
+  arrowGreetResult,
+  betterCalc,
+  calc,
+  doSomething,
+  // infiniteLoop,
+  logMessage,
+  // myFunc,
+  resultGreet,
+  resultUsers,
+  throwError,
+} from "./module-02/returnType";
 //
 
 function App() {
@@ -98,6 +110,24 @@ function App() {
   console.log("myButtonStyleSmall", myButtonStyleSmall);
   console.log("myButtonStyleMedium", myButtonStyleMedium);
   console.log("myButtonStyleLarge", myButtonStyleLarge);
+  // Return type
+  // step-01
+  console.log("resultGreet", resultGreet);
+  console.log("arrowGreetResult", arrowGreetResult);
+  // step-02
+  console.log("resultUsers", resultUsers);
+  // void
+  console.log(logMessage);
+  console.log(doSomething);
+  // never
+  console.log("throwError", throwError);
+  // console.log("infiniteLoop", infiniteLoop);
+  // function type
+  // console.log(myFunc("Hello", 42));
+  console.log(calc(1, 1, (num1, num2) => num1 + num2));
+  console.log(calc(10, 5, (num1, num2) => num1 - num2));
+  console.log(betterCalc(1, 1, (num1, num2) => num1 + num2));
+  console.log(betterCalc(10, 5, (num1, num2) => num1 - num2));
   //  check;
 
   return (
