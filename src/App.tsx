@@ -48,6 +48,13 @@ import {
   resultUsers,
   throwError,
 } from "./module-02/returnType";
+import {
+  cat,
+  dog,
+  fish,
+  userCustom,
+  userWithCoords,
+} from "./module-02/customTypes";
 //
 
 function App() {
@@ -128,6 +135,12 @@ function App() {
   console.log(calc(10, 5, (num1, num2) => num1 - num2));
   console.log(betterCalc(1, 1, (num1, num2) => num1 + num2));
   console.log(betterCalc(10, 5, (num1, num2) => num1 - num2));
+  // customTypes
+  console.log("userCustom", userCustom);
+  console.log("userWithCoords", userWithCoords);
+  console.log(cat);
+  console.log(dog);
+  console.log(fish);
   //  check;
 
   return (
