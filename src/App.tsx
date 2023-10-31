@@ -55,6 +55,18 @@ import {
   userCustom,
   userWithCoords,
 } from "./module-02/customTypes";
+import {
+  MyDog,
+  // OtherDog,
+  alice,
+  animalWalkableOreEatable,
+  bob,
+  dogAnimal,
+  greetOptional,
+  interfaceAnimal,
+  typeAnimal,
+  typeDog,
+} from "./module-02/parametersAndProperties";
 //
 
 function App() {
@@ -141,6 +153,25 @@ function App() {
   console.log(cat);
   console.log(dog);
   console.log(fish);
+  /// Optional parameters and properties
+  console.log("greet optional:", greetOptional("Alice"));
+  console.log("greet optional else:", greetOptional());
+  // step-02
+  console.log("alice", alice);
+  console.log("bob", bob);
+  // Difference between Type and Interface
+  console.log("typeAnimal", typeAnimal);
+  console.log("interfaceAnimal", interfaceAnimal);
+  // step-02
+  console.log("dogAnimal", dogAnimal);
+  // step-03
+  console.log("typeDog", typeDog);
+  //  step-05
+  // console.log("OtherDog", OtherDog);
+  console.log("MyDog", MyDog);
+  //  step-06
+  console.log("animalWalkable", animalWalkableOreEatable.walk);
+  console.log("animalEatable", animalWalkableOreEatable.eat);
   //  check;
 
   return (
