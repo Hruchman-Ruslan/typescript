@@ -67,6 +67,20 @@ import {
   typeAnimal,
   typeDog,
 } from "./module-02/parametersAndProperties";
+import {
+  admin,
+  carInstance,
+  combineTypeof,
+  employee,
+  isEmployee,
+  letAnimalTalk,
+  printDetails,
+  staffMember,
+  talkCat,
+  talkDog,
+  truckInstance,
+  useVehicle,
+} from "./module-02/AdvancedTypes";
 //
 
 function App() {
@@ -172,6 +186,22 @@ function App() {
   //  step-06
   console.log("animalWalkable", animalWalkableOreEatable.walk);
   console.log("animalEatable", animalWalkableOreEatable.eat);
+  // Advanced Types
+  // Type Guards
+  // step-01
+  console.log(combineTypeof("Hello", "!"));
+  // step-02
+  console.log("admin:", printDetails(admin));
+  console.log("employee:", printDetails(employee));
+  // instanceof
+  console.log("carInstance:", useVehicle(carInstance));
+  console.log("truckInstance:", useVehicle(truckInstance));
+  // User-Defined
+  console.log("talkDog:", letAnimalTalk(talkDog));
+  console.log("talkCat:", letAnimalTalk(talkCat));
+  // as
+  console.log("staffMember:", staffMember);
+  console.log("staffMember:", isEmployee(staffMember));
   //  check;
 
   return (
