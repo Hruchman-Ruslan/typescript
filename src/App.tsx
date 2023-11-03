@@ -81,6 +81,19 @@ import {
   truckInstance,
   useVehicle,
 } from "./module-02/AdvancedTypes";
+import {
+  adminCheck,
+  // combineOverloads,
+  // concatenate,
+  input,
+  // names,
+  someValue,
+  strLength1,
+  strLength2,
+  userCheck,
+  userIndexProperties,
+  usersIndex,
+} from "./module-02/typeCasting";
 //
 
 function App() {
@@ -202,6 +215,26 @@ function App() {
   // as
   console.log("staffMember:", staffMember);
   console.log("staffMember:", isEmployee(staffMember));
+  // Type Casting
+  console.log("someValue", typeof someValue);
+  console.log("strLength1", typeof strLength1);
+  console.log("strLength2", typeof strLength2);
+  // step-01
+  console.log("input", typeof input);
+  // Index Properties
+  console.log("userIndexProperties", userIndexProperties);
+  console.log("usersIndex", usersIndex);
+  //  (function overloads)
+  // console.log("combineOverloads:", combineOverloads(1, 2)); // Outputs: 3
+  // console.log("combineOverloads:", combineOverloads("Hello", "World")); // Outputs: HelloWorld
+  // console.log("combineOverloads:", combineOverloads("Hello", 2)); // Outputs: Hello2
+  // console.log("combineOverloads:", combineOverloads(1, "World")); // Outputs: 1World
+  // step-01
+  // console.log("concatenate:", concatenate(names)); // Outputs: AliceBobCharlie
+  // console.log("concatenate:", concatenate(names, ", ")); // Outputs: Alice, Bob, Charlie
+  // step-02
+  console.log("userCheck", userCheck);
+  console.log("adminCheck", adminCheck);
   //  check;
 
   return (
