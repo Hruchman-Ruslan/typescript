@@ -94,6 +94,18 @@ import {
   userIndexProperties,
   usersIndex,
 } from "./module-02/typeCasting";
+import {
+  // arrayLogger,
+  firstNum,
+  firstStr,
+  genericsArr,
+  getLength,
+  merged,
+  // mergedExtends,
+  output1,
+  output2,
+  promise,
+} from "./module-02/generics";
 //
 
 function App() {
@@ -235,6 +247,29 @@ function App() {
   // step-02
   console.log("userCheck", userCheck);
   console.log("adminCheck", adminCheck);
+  // Generics
+  console.log("genericsArr:", genericsArr);
+  // step-03
+  console.log("promise:", promise);
+  // Generic function/method
+  // step-01
+  console.log("output1:", typeof output1);
+  console.log("output2:", typeof output2);
+  // step-02
+  console.log("firstNum:", firstNum);
+  console.log("firstStr:", firstStr);
+  // step-03
+  console.log("merged:", merged);
+  // Extends
+  // step-01
+  // console.log("mergedExtends:", mergedExtends);
+  // step-02
+  console.log("getLengthString:", getLength("text"));
+  console.log("getLengthArr:", getLength([1, 2, 3]));
+  // getLength(100); // Errro: Argument of type 'number' is not assignable to parameter of type 'ILength'
+  // step-03
+  // console.log("arrayLogger is ok!:", arrayLogger(["Hello", "World"]));
+  // console.log("arrayLogger is Error!:", arrayLogger([1, 2, 3]));
   //  check;
 
   return (
