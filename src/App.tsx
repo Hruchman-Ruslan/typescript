@@ -95,16 +95,23 @@ import {
   usersIndex,
 } from "./module-02/typeCasting";
 import {
+  extractValue,
   // arrayLogger,
   firstNum,
   firstStr,
   genericsArr,
   getLength,
+  getPersonInfo,
+  john,
   merged,
+  numberStorage,
   // mergedExtends,
   output1,
   output2,
+  pair1,
+  pair2,
   promise,
+  textStorage,
 } from "./module-02/generics";
 //
 
@@ -266,10 +273,27 @@ function App() {
   // step-02
   console.log("getLengthString:", getLength("text"));
   console.log("getLengthArr:", getLength([1, 2, 3]));
-  // getLength(100); // Errro: Argument of type 'number' is not assignable to parameter of type 'ILength'
+  // getLength(100); // Error: Argument of type 'number' is not assignable to parameter of type 'ILength'
   // step-03
   // console.log("arrayLogger is ok!:", arrayLogger(["Hello", "World"]));
   // console.log("arrayLogger is Error!:", arrayLogger([1, 2, 3]));
+  // keyof
+  // step-01
+  console.log("getPersonInfo:", getPersonInfo(john, "age"));
+  console.log("getPersonInfo:", getPersonInfo(john, "name"));
+  // console.log(getPersonInfo(john, "job")); // Error: Argument of type '"job"' is not assignable to parameter of type 'PersonKeys'.
+  // step-02
+  console.log("extractValue:", extractValue({ name: "John" }, "name"));
+  // Generic Classes
+  // step-01
+  console.log("textStorage:", textStorage);
+  console.log("numberStorage:", numberStorage.getItems());
+  // step-02
+  console.log("pair1 Key:", pair1.getKey());
+  console.log("pair1 Value:", pair1.getValue());
+  console.log("pair2 Key:", pair2.getKey());
+  console.log("pair2 Value:", pair2.getValue());
+  // Utility Types
   //  check;
 
   return (
