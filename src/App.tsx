@@ -95,6 +95,10 @@ import {
   usersIndex,
 } from "./module-02/typeCasting";
 import {
+  aliceReadonly,
+  exampleBaseProject,
+  exampleUseGreeting,
+  exampleUseMultiplyResult,
   extractValue,
   // arrayLogger,
   firstNum,
@@ -104,14 +108,21 @@ import {
   getPersonInfo,
   john,
   merged,
+  newUser,
   numberStorage,
   // mergedExtends,
   output1,
   output2,
   pair1,
   pair2,
+  personWithLocation,
+  personWithoutLocation,
   promise,
+  readonlyAlice,
   textStorage,
+  translations,
+  userBasicInfo,
+  userRoleStatuses,
 } from "./module-02/generics";
 //
 
@@ -294,6 +305,30 @@ function App() {
   console.log("pair2 Key:", pair2.getKey());
   console.log("pair2 Value:", pair2.getValue());
   // Utility Types
+  // Partial<T>
+  console.log("newUser:", newUser);
+  // Readonly<T>
+  // step-01
+  console.log("readonlyAlice:", readonlyAlice);
+  console.log("aliceReadonly:", aliceReadonly);
+  // Pick<T, K>
+  // step-01
+  console.log("userBasicInfo:", userBasicInfo);
+  // step-02
+  console.log("exampleBaseProject:", exampleBaseProject);
+  // Record<K, T>
+  // step-01
+  console.log("translations:", translations);
+  // step-02
+  console.log("userRoleStatuses:", userRoleStatuses);
+  // Omit<T, K>
+  console.log("personWithLocation:", personWithLocation);
+  console.log("personWithoutLocation:", personWithoutLocation);
+  // ReturnType<T>
+  // step-01
+  console.log("exampleUseGreeting:", exampleUseGreeting);
+  console.log("exampleUseMultiplyResult:", exampleUseMultiplyResult);
+  // step-02?
   //  check;
 
   return (
