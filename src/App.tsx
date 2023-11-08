@@ -124,6 +124,21 @@ import {
   userBasicInfo,
   userRoleStatuses,
 } from "./module-02/generics";
+import {
+  bookInfo,
+  databaseRecord,
+  johnReadonly,
+  johnSummary,
+  johnWithoutAddress,
+  numbersReadonly,
+  reversNumber,
+  reverseString,
+  studentAge,
+  studentName,
+  todo1,
+  todo2,
+  userInfo,
+} from "./module-02/practiceModuleTwo";
 //
 
 function App() {
@@ -329,6 +344,27 @@ function App() {
   console.log("exampleUseGreeting:", exampleUseGreeting);
   console.log("exampleUseMultiplyResult:", exampleUseMultiplyResult);
   // step-02?
+  // practice Module-02
+  // task-01
+  console.log("userInfo:", userInfo);
+  console.log("bookInfo:", bookInfo);
+  // task-02
+  console.log("reversNumber:", reversNumber);
+  console.log("reverseString:", reverseString);
+  // task-03
+  console.log("studentName:", studentName);
+  console.log("studentAge:", studentAge);
+  // task-04
+  console.log("todo1:", todo1);
+  console.log("todo2 to update:", todo2);
+  // task-05
+  console.log("johnReadonly:", johnReadonly);
+  console.log("numbersReadonly:", numbersReadonly);
+  // task-06
+  console.log("johnSummary:", johnSummary);
+  console.log("johnWithoutAddress:", johnWithoutAddress);
+  // task-07
+  console.log("databaseRecord:", databaseRecord);
   //  check;
 
   return (
