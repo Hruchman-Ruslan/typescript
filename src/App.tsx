@@ -139,6 +139,18 @@ import {
   todo2,
   userInfo,
 } from "./module-02/practiceModuleTwo";
+import {
+  AreaCalculator,
+  UserClass,
+  busDriver,
+  carDriver,
+  driver,
+  newAnimal,
+  newFeeder,
+  newSpecificHtmlParser,
+  newUniversalParser,
+} from "./module-03/ExampleClass";
+// import { auto } from "./module-03/ExampleClass";
 //
 
 function App() {
@@ -365,6 +377,24 @@ function App() {
   console.log("johnWithoutAddress:", johnWithoutAddress);
   // task-07
   console.log("databaseRecord:", databaseRecord);
+  // Module-03
+  // ExampleClass
+  // console.log("ExampleClass", auto);
+  // stp-01
+  console.log("UserClass:", UserClass);
+  // step-02
+  console.log("AreaCalculator:", AreaCalculator);
+  // step-03
+  console.log("carDriver:", carDriver);
+  console.log("busDriver:", busDriver);
+  console.log("driver-carDriver:", driver.go(carDriver));
+  console.log("driver-busDriver:", driver.go(busDriver));
+  // step-04
+  console.log("newSpecificHtmlParser:", newSpecificHtmlParser.htmlParse());
+  console.log("newUniversalParser:", newUniversalParser.jsonParse());
+  // step-05
+  console.log("newFeeder:", newFeeder.getFood());
+  console.log("newAnimal:", newAnimal);
   //  check;
 
   return (
