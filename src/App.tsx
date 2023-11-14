@@ -150,6 +150,7 @@ import {
   newSpecificHtmlParser,
   newUniversalParser,
 } from "./module-03/ExampleClass";
+import { house, houseCopy, houseMethod } from "./module-03/ClassInTypeScript";
 // import { auto } from "./module-03/ExampleClass";
 //
 
@@ -395,6 +396,12 @@ function App() {
   // step-05
   console.log("newFeeder:", newFeeder.getFood());
   console.log("newAnimal:", newAnimal);
+  // Class in TypeScript
+  // constructor
+  console.log("house:", house);
+  // method
+  houseMethod.showAddress();
+  houseCopy.showAddress();
   //  check;
 
   return (
