@@ -150,7 +150,17 @@ import {
   newSpecificHtmlParser,
   newUniversalParser,
 } from "./module-03/ExampleClass";
-import { house, houseCopy, houseMethod } from "./module-03/ClassInTypeScript";
+import {
+  // HouseInitialization,
+  a,
+  b,
+  house,
+  houseCopy,
+  houseMethod,
+  houseModifier,
+  houseReadonlyArray,
+  // houseReadonlyObject,
+} from "./module-03/ClassInTypeScript";
 // import { auto } from "./module-03/ExampleClass";
 //
 
@@ -402,6 +412,24 @@ function App() {
   // method
   houseMethod.showAddress();
   houseCopy.showAddress();
+  // Access modifiers
+  // step-01
+  console.log("a:", a);
+  console.log("b:", b);
+  // step-02
+  houseModifier.addTenant("Anton");
+  houseModifier.addTenant("Nikita");
+  houseModifier.showTenants();
+  // Abbreviation of initialization
+  // console.log("HouseInitialization:",HouseInitialization)
+  // Readonly
+  // step-01
+  houseReadonlyArray.addTenant("Alice");
+  console.log(houseReadonlyArray.tenants);
+  // step-02
+  // houseReadonlyObject.address = { street: "High St", number: 1 };
+  // houseReadonlyObject.address.number = 43;
+  // console.log("houseReadonlyObject:", houseReadonlyObject);
   //  check;
 
   return (
