@@ -118,3 +118,67 @@ export { houseReadonlyArray };
 // });
 
 // export { houseReadonlyObject };
+
+// Imitation
+
+// step-01
+
+// class HouseImitation {
+//   constructor(private readonly type: string, private street: string) {}
+// }
+
+// class StoneHouse extends HouseImitation {
+//   constructor(street: string) {
+//     super("stone", street);
+//   }
+// }
+
+// const stoneHouse = new StoneHouse("Stone-world");
+
+// export { stoneHouse };
+
+// step-02
+
+class HouseImitation {
+  private tenants: string[] = [];
+
+  constructor(private readonly type: string, private street: string) {}
+
+  public showAddress(this: HouseImitation) {
+    console.log("Address: " + this.street);
+  }
+
+  public showType(this: HouseImitation) {
+    console.log("HouseImitation Type: " + this.type);
+  }
+
+  public addTenant(tenant: string) {
+    this.tenants.push(tenant);
+  }
+
+  public showTenants() {
+    console.log(this.tenants);
+  }
+}
+
+class StoneHouse extends HouseImitation {
+  private chargeOfTheHouse: string;
+
+  constructor(street: string, generalTenant: string) {
+    super("stone", street);
+
+    this.chargeOfTheHouse = generalTenant;
+
+    this.addTenant(generalTenant);
+  }
+
+  public showTenants() {
+    console.log("General: " + this.chargeOfTheHouse);
+
+    super.showTenants();
+  }
+}
+
+const stoneHouse = new StoneHouse("Stone-world", "Max");
+
+export { stoneHouse };
