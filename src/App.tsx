@@ -159,6 +159,8 @@ import {
   houseMethod,
   houseModifier,
   houseReadonlyArray,
+  stoneHouse,
+  // stoneHouse,
   // houseReadonlyObject,
 } from "./module-03/ClassInTypeScript";
 // import { auto } from "./module-03/ExampleClass";
@@ -430,6 +432,16 @@ function App() {
   // houseReadonlyObject.address = { street: "High St", number: 1 };
   // houseReadonlyObject.address.number = 43;
   // console.log("houseReadonlyObject:", houseReadonlyObject);
+  // Imitation
+  // step-01
+  // console.log("stoneHouse:", stoneHouse);
+  // step-02
+  stoneHouse.addTenant("Anton");
+  stoneHouse.addTenant("Nikita");
+
+  stoneHouse.showTenants();
+  stoneHouse.showType();
+  stoneHouse.showAddress();
   //  check;
 
   return (
