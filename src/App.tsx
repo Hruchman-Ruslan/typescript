@@ -151,6 +151,7 @@ import {
   newUniversalParser,
 } from "./module-03/ExampleClass";
 import {
+  UseStatic,
   // HouseInitialization,
   a,
   b,
@@ -159,6 +160,10 @@ import {
   houseMethod,
   houseModifier,
   houseReadonlyArray,
+  obj1,
+  obj2,
+  obj3,
+  personGetterSetter,
   stoneHouse,
   // stoneHouse,
   // houseReadonlyObject,
@@ -442,6 +447,18 @@ function App() {
   stoneHouse.showTenants();
   stoneHouse.showType();
   stoneHouse.showAddress();
+  // Getter/Setter
+  personGetterSetter.lastName = "Pupkin";
+  personGetterSetter.firstName = "Petha";
+
+  console.log("personGetterSetter:", personGetterSetter.info);
+  // Static methods and properties
+  obj1.showCount();
+  obj2.showCount();
+  obj3.showCount();
+
+  UseStatic.itStaticMethod();
+  // Abstract classes
   //  check;
 
   return (
