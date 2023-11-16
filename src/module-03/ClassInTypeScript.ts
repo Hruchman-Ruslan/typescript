@@ -182,3 +182,92 @@ class StoneHouse extends HouseImitation {
 const stoneHouse = new StoneHouse("Stone-world", "Max");
 
 export { stoneHouse };
+
+// Getter/Setter
+
+type PersonInformation = {
+  firstName?: string;
+  lastName?: string;
+};
+
+class PersonGetterSetter {
+  private personInfo: PersonInformation = {};
+
+  set firstName(value: string) {
+    console.log("firstName added");
+
+    this.personInfo.firstName = value;
+  }
+
+  set lastName(value: string) {
+    console.log("lastName added");
+
+    this.personInfo.lastName = value;
+  }
+
+  get info() {
+    const { personInfo } = this;
+
+    return `${personInfo.firstName} ${personInfo.lastName}`;
+  }
+}
+
+const personGetterSetter = new PersonGetterSetter();
+
+export { personGetterSetter };
+
+// Static methods and properties
+
+class UseStatic {
+  private static count = 0;
+
+  constructor() {
+    UseStatic.count += 1;
+  }
+
+  public static itStaticMethod() {
+    console.log("Run static method");
+  }
+
+  public showCount() {
+    console.log(UseStatic.count);
+  }
+}
+
+const obj1 = new UseStatic();
+const obj2 = new UseStatic();
+const obj3 = new UseStatic();
+
+export { obj1, obj2, obj3, UseStatic };
+
+// Abstract classes
+
+abstract class Plane {
+  protected pilotInCabin = false;
+
+  public sitInPlane() {
+    this.pilotInCabin = true;
+  }
+
+  public abstract startEngine(): boolean;
+}
+
+class Maize extends Plane {
+  public startEngine() {
+    // Start the propeller engine.
+
+    return true;
+  }
+}
+
+class Boeing extends Plane {
+  public startEngine() {
+    // Power up the jet engines.
+
+    return true;
+  }
+}
+
+// class BrokenPlane extends Plane {} // Error: Class 'BrokenPlane' does not implement inherited abstract method 'startEngine' from class 'Plane'.
+
+export { Maize, Boeing };
