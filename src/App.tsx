@@ -174,6 +174,7 @@ import {
   greetInterfaces,
   iPerson,
   pilot,
+  readonlyPerson,
 } from "./module-03/interfacesInTypeScript";
 // import { auto } from "./module-03/ExampleClass";
 //
@@ -480,6 +481,9 @@ function App() {
   boeing.sitInPlane(pilot);
 
   boeing.startEngine();
+  // Readonly
+  console.log("readonlyPerson:", readonlyPerson);
+  // Extending Interfaces
   //  check;
 
   return (

@@ -104,3 +104,32 @@ const boeing = new Boeing();
 const pilot = new Pilot("Anthony", 32);
 
 export { pilot, boeing };
+
+// Readonly
+
+interface ITest {
+  readonly name: string;
+}
+
+const readonlyPerson: ITest = {
+  name: "Some Name",
+};
+
+// readonlyPerson.name = "Another name";
+
+export { readonlyPerson };
+
+// Extending Interfaces
+
+interface IPersonExtending {
+  name: string;
+  age: number;
+
+  greet(phrase: string): void;
+}
+
+interface IPilotExtending extends IPersonExtending {
+  flyMessage(): void;
+}
+
+export type { IPilotExtending };
