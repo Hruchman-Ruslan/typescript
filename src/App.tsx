@@ -168,6 +168,14 @@ import {
   // stoneHouse,
   // houseReadonlyObject,
 } from "./module-03/ClassInTypeScript";
+import {
+  bill,
+  boeing,
+  greetInterfaces,
+  iPerson,
+  pilot,
+  readonlyPerson,
+} from "./module-03/interfacesInTypeScript";
 // import { auto } from "./module-03/ExampleClass";
 //
 
@@ -459,6 +467,23 @@ function App() {
 
   UseStatic.itStaticMethod();
   // Abstract classes
+  // Interfaces in TypeScript
+  greetInterfaces(bill);
+  // Object interfaces
+  iPerson.greet("Greetings everyone, I");
+  // Class interfaces
+  // step-01
+  // pilot.pilotGreet("Captain welcomes you aboard");
+  // pilot.flyMessage();
+  // step-02
+  pilot.pilotGreet("Captain welcomes you aboard");
+
+  boeing.sitInPlane(pilot);
+
+  boeing.startEngine();
+  // Readonly
+  console.log("readonlyPerson:", readonlyPerson);
+  // Extending Interfaces
   //  check;
 
   return (
