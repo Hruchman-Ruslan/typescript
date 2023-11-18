@@ -133,3 +133,51 @@ interface IPilotExtending extends IPersonExtending {
 }
 
 export type { IPilotExtending };
+
+// Interfaces as a function type
+
+// step-01
+
+type AddFuncType = (n1: number, n2: number) => number;
+
+const addFunctionType: AddFuncType = (n1: number, n2: number): number => {
+  return n1 + n2;
+};
+
+export { addFunctionType };
+
+// step-02
+
+interface AddFuncInterface {
+  (n1: number, n2: number): number;
+}
+
+const addFunctionInterface: AddFuncInterface = (
+  n1: number,
+  n2: number
+): number => {
+  return n1 + n2;
+};
+
+export { addFunctionInterface };
+
+// Optional parameters
+
+interface IOptional {
+  name?: string;
+  age: number;
+}
+
+class OptionalParameters implements IOptional {
+  name?: string;
+
+  constructor(public age: number) {}
+
+  setName(n: string) {
+    this.name = n;
+  }
+}
+
+const optionalParameters = new OptionalParameters(30);
+
+export { optionalParameters };

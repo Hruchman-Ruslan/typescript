@@ -169,10 +169,13 @@ import {
   // houseReadonlyObject,
 } from "./module-03/ClassInTypeScript";
 import {
+  addFunctionInterface,
+  addFunctionType,
   bill,
   boeing,
   greetInterfaces,
   iPerson,
+  optionalParameters,
   pilot,
   readonlyPerson,
 } from "./module-03/interfacesInTypeScript";
@@ -484,6 +487,17 @@ function App() {
   // Readonly
   console.log("readonlyPerson:", readonlyPerson);
   // Extending Interfaces
+  // Interfaces as a function type
+  // step-01
+  console.log("addFunctionType:", addFunctionType(2, 3));
+  // step-02
+  console.log("addFunctionInterface:", addFunctionInterface(2, 3));
+  // Optional parameters
+  optionalParameters.setName("Alice");
+  console.log("optionalParameters.name:", optionalParameters.name);
+  console.log("optionalParameters.age:", optionalParameters.age);
+  // UML and design patterns
+  // Unified Modeling Language (UML)
   //  check;
 
   return (
