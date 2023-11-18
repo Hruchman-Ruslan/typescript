@@ -496,6 +496,8 @@ function App() {
   optionalParameters.setName("Alice");
   console.log("optionalParameters.name:", optionalParameters.name);
   console.log("optionalParameters.age:", optionalParameters.age);
+  // UML and design patterns
+  // Unified Modeling Language (UML)
   //  check;
 
   return (
