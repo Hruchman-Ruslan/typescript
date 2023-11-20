@@ -179,6 +179,18 @@ import {
   pilot,
   readonlyPerson,
 } from "./module-03/interfacesInTypeScript";
+import {
+  catUml,
+  catalogDependence,
+  guest1,
+  guest2,
+  guest3,
+  homeAggregation,
+  homeComposition,
+  itemDependence,
+  server,
+  // ship,
+} from "./module-03/uml";
 // import { auto } from "./module-03/ExampleClass";
 //
 
@@ -498,6 +510,36 @@ function App() {
   console.log("optionalParameters.age:", optionalParameters.age);
   // UML and design patterns
   // Unified Modeling Language (UML)
+  // step-01
+  console.log("catUml:", catUml);
+  console.log("catUml:", catUml.run(4));
+  // step-02
+  bob.name = "Alice";
+  bob.age = 35;
+  console.log("bob:", bob);
+  // Dependence
+  itemDependence.setItem("Catalog 1");
+  itemDependence.setItem("Catalog 2");
+  itemDependence.setItem("Catalog 3");
+  catalogDependence.showCatalog(itemDependence.getItems());
+  // Association
+  server.init();
+  // Aggregation
+  homeAggregation.addGuest(guest1);
+  homeAggregation.addGuest(guest2);
+  homeAggregation.addGuest(guest3);
+
+  console.log("homeAggregation:", homeAggregation);
+  // Composition
+  // step-01
+  homeComposition.addTenant("Max");
+  homeComposition.addTenant("Anton");
+  homeComposition.addTenant("Nikita");
+
+  console.log("homeComposition:", homeComposition);
+  // step-02
+  // ship.setCaptain("John");
+  // ship.sink();
   //  check;
 
   return (
