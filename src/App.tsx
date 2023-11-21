@@ -191,6 +191,12 @@ import {
   server,
   // ship,
 } from "./module-03/uml";
+import {
+  appSingleton,
+  carBuilder,
+  dbQuery,
+  // processor
+} from "./module-03/designTemplates";
 // import { auto } from "./module-03/ExampleClass";
 //
 
@@ -540,6 +546,17 @@ function App() {
   // step-02
   // ship.setCaptain("John");
   // ship.sink();
+  // Design templates
+  // Singleton
+  console.log("appSingleton:", appSingleton);
+  // Factory
+  // processor.pay(100);
+  // Builder
+  // step-01
+  console.log("carBuilder:", carBuilder);
+  // step-02
+  dbQuery.query();
+  // Adapter
   //  check;
 
   return (
