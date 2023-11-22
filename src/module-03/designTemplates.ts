@@ -193,3 +193,285 @@ const dbQuery = buildQuery
 export { dbQuery };
 
 // Adapter
+
+class OldService {
+  oldRequest(): string {
+    return "Old Service Request";
+  }
+}
+
+interface NewService {
+  request(): string;
+}
+
+class Adapter implements NewService {
+  constructor(private oldService: OldService) {}
+
+  public request(): string {
+    const result = this.oldService.oldRequest();
+
+    return `Adapter: (TRANSLATED) ${result}`;
+  }
+}
+
+class Client {
+  constructor(private newService: NewService) {}
+
+  public useService(): void {
+    console.log(this.newService.request());
+  }
+}
+
+const oldService = new OldService();
+const adapter = new Adapter(oldService);
+const clientAdapter = new Client(adapter);
+
+export { oldService, adapter, clientAdapter };
+
+// Decorator
+
+interface Coffee {
+  cost(): number;
+  description(): string;
+}
+
+class SimpleCoffee implements Coffee {
+  cost() {
+    return 10;
+  }
+
+  description() {
+    return "Simple Coffee";
+  }
+}
+
+class CoffeeDecorator implements Coffee {
+  constructor(protected coffee: Coffee) {}
+
+  cost() {
+    return this.coffee.cost();
+  }
+
+  description() {
+    return this.coffee.description();
+  }
+}
+
+class MilkDecorator extends CoffeeDecorator {
+  cost() {
+    return this.coffee.cost() + 2;
+  }
+
+  description() {
+    return this.coffee.description() + ", milk";
+  }
+}
+
+class SugarDecorator extends CoffeeDecorator {
+  cost() {
+    return this.coffee.cost() + 1;
+  }
+
+  description() {
+    return this.coffee.description() + ", sugar";
+  }
+}
+
+let coffee: Coffee = new SimpleCoffee();
+
+coffee = new MilkDecorator(coffee);
+coffee = new SugarDecorator(coffee);
+
+export { coffee };
+
+// Facade
+
+// type User = {
+//   id: number;
+//   name: string;
+//   email: string;
+// };
+
+// type Address = {
+//   userId: number;
+//   street: string;
+//   city: string;
+//   country: string;
+// };
+
+// type PaymentData = {
+//   userId: number;
+//   cardNumber: string;
+//   expiryDate: string;
+// };
+
+// class UserService {
+//   getUser(id: number): User {
+//     console.log(`Fetching user data for userId: ${id}`);
+//     return { id, name: "John Doe", email: "john.doe@example.com" };
+//   }
+
+//   updateUser(user: User): void {
+//     console.log(`Updating user: ${JSON.stringify(user)}`);
+//   }
+// }
+
+// class AddressService {
+//   getAddresses(userId: number): Address[] {
+//     console.log(`Fetching addresses for userId: ${userId}`);
+//     return [{ userId, street: "123 Street", city: "City", country: "Country" }];
+//   }
+
+//   updateAddress(userId: number, address: Address): void {
+//     console.log(`Updating address for userId: ${userId}`);
+//   }
+// }
+
+// class PaymentService {
+//   getPaymentData(userId: number): PaymentData {
+//     console.log(`Fetching payment data for userId: ${userId}`);
+//     return { userId, cardNumber: "1234 5678 9012 3456", expiryDate: "01/25" };
+//   }
+
+//   updatePaymentData(userId: number, paymentData: PaymentData): void {
+//     console.log(`Updating payment data for userId: ${userId}`);
+//   }
+// }
+
+// class UserProfileFacade {
+//   constructor(
+//     private userService: UserService,
+//     private addressService: AddressService,
+//     private paymentService: PaymentService
+//   ) {}
+
+//   getUserProfile(userId: number): User {
+//     const user = this.userService.getUser(userId);
+//     user["addresses"] = this.addressService.getAddresses(userId);
+//     user["paymentData"] = this.paymentService.getPaymentData(userId);
+//     return user;
+//   }
+
+//   updateUserProfile(
+//     userId: number,
+//     userData: User,
+//     address: Address,
+//     paymentData: PaymentData
+//   ): void {
+//     this.userService.updateUser(userData);
+//     this.addressService.updateAddress(userId, address);
+//     this.paymentService.updatePaymentData(userId, paymentData);
+//   }
+// }
+
+// const userService = new UserService();
+// const addressService = new AddressService();
+// const paymentService = new PaymentService();
+
+// const userProfileFacade = new UserProfileFacade(
+//   userService,
+//   addressService,
+//   paymentService
+// );
+
+// const userIdToFetch = 1;
+// const userProfile = userProfileFacade.getUserProfile(userIdToFetch);
+
+// const updatedUserData: User = {
+//   id: userIdToFetch,
+//   name: "Updated Name",
+//   email: "updated.email@example.com",
+// };
+// const updatedAddress: Address = {
+//   userId: userIdToFetch,
+//   street: "456 Avenue",
+//   city: "New City",
+//   country: "New Country",
+// };
+// const updatedPaymentData: PaymentData = {
+//   userId: userIdToFetch,
+//   cardNumber: "9876 5432 1098 7654",
+//   expiryDate: "12/27",
+// };
+
+// userProfileFacade.updateUserProfile(
+//   userIdToFetch,
+//   updatedUserData,
+//   updatedAddress,
+//   updatedPaymentData
+// );
+
+// export { userProfile };
+
+// State
+
+// interface State {
+//   proceedToNext(order: Order): void;
+//   toString(): string;
+// }
+
+// class Order {
+//   private state: State;
+
+//   constructor() {
+//     this.state = new PendingState();
+//   }
+
+//   public proceedToNext() {
+//     this.state.proceedToNext(this);
+//   }
+
+//   public setState(state: State) {
+//     this.state = state;
+//   }
+
+//   public toString(): string {
+//     return this.state.toString();
+//   }
+// }
+
+// class PendingState implements State {
+//   public proceedToNext(order: Order): void {
+//     console.log("Proceeding from Pending to Shipped...");
+//     order.setState(new ShippedState());
+//   }
+
+//   public toString(): string {
+//     return "Pending";
+//   }
+// }
+
+// class ShippedState implements State {
+//   public proceedToNext(order: Order): void {
+//     console.log("Proceeding from Shipped to Delivered...");
+//     order.setState(new DeliveredState());
+//   }
+
+//   public toString(): string {
+//     return "Shipped";
+//   }
+// }
+
+// class DeliveredState implements State {
+//   public proceedToNext(order: Order): void {
+//     console.log("Already delivered. Thank you!");
+//   }
+
+//   public toString(): string {
+//     return "Delivered";
+//   }
+// }
+
+// const order = new Order();
+
+// console.log(order.toString()); // Output: Pending
+
+// order.proceedToNext();
+// console.log(order.toString()); // Output: Shipped
+
+// order.proceedToNext();
+// console.log(order.toString()); // Output: Delivered
+
+// // order.proceedToNext(); // Output: Already delivered. Thank you!
+
+// export { order };
