@@ -192,9 +192,15 @@ import {
   // ship,
 } from "./module-03/uml";
 import {
+  adapter,
   appSingleton,
   carBuilder,
+  clientAdapter,
+  coffee,
   dbQuery,
+  oldService,
+  // order,
+  // userProfile,
   // processor
 } from "./module-03/designTemplates";
 // import { auto } from "./module-03/ExampleClass";
@@ -557,6 +563,16 @@ function App() {
   // step-02
   dbQuery.query();
   // Adapter
+  console.log("oldService:", oldService);
+  console.log("adapter:", adapter);
+  console.log("clientAdapter:", clientAdapter);
+  clientAdapter.useService();
+  // Decorator
+  console.log(`${coffee.description()} - ${coffee.cost()} dollars`);
+  // Facade
+  // console.log("User Profile:", userProfile);
+  // State
+  // order.proceedToNext();
   //  check;
 
   return (
