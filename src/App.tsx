@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 //
@@ -203,11 +201,33 @@ import {
   // userProfile,
   // processor
 } from "./module-03/designTemplates";
+import AddTodoForm from "./module-03/AddTodoForm";
+import TodoItem from "./module-03/TodoItem";
 // import { auto } from "./module-03/ExampleClass";
 //
 
+// type Task = {
+//   id: number;
+//   text: string;
+// }
+
+export interface Task {
+  id: number;
+  text: string;
+}
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState<Task[]>([]);
+
+  const addTodo = (text: string) => {
+    const newTodo = { id: Date.now(), text };
+    setTodos([...todos, newTodo]);
+  };
+
+  const deleteTodo = (id: number) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+  };
 
   //  check;
 
@@ -578,25 +598,14 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>Todo List</h1>
+        <AddTodoForm onAdd={addTodo} />
+        <ul>
+          {todos.map((todo) => (
+            <TodoItem key={todo.id} todo={todo} onDelete={deleteTodo} />
+          ))}
+        </ul>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
