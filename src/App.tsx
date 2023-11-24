@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import "./App.css";
 
 //
@@ -203,6 +203,9 @@ import {
 } from "./module-03/designTemplates";
 import AddTodoForm from "./module-03/AddTodoForm";
 import TodoItem from "./module-03/TodoItem";
+import { RootState } from "./module-03/redux/store";
+import { addTodo, deleteToto } from "./module-03/redux/todoSlice";
+import { useSelector, useDispatch } from "react-redux";
 // import { auto } from "./module-03/ExampleClass";
 //
 
@@ -217,17 +220,28 @@ export interface Task {
 }
 
 function App() {
-  const [todos, setTodos] = useState<Task[]>([]);
+  //  Ts in Redux
 
-  const addTodo = (text: string) => {
-    const newTodo = { id: Date.now(), text };
-    setTodos([...todos, newTodo]);
-  };
+  const todos = useSelector((state: RootState) => state.todos);
+  const dispatch = useDispatch();
 
-  const deleteTodo = (id: number) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
-  };
+  //  Ts in Redux
+
+  //  Native ts in react
+
+  // const [todos, setTodos] = useState<Task[]>([]);
+
+  // const addTodo = (text: string) => {
+  //   const newTodo = { id: Date.now(), text };
+  //   setTodos([...todos, newTodo]);
+  // };
+
+  // const deleteTodo = (id: number) => {
+  //   const newTodos = todos.filter((todo) => todo.id !== id);
+  //   setTodos(newTodos);
+  // };
+
+  //  Native ts in react
 
   //  check;
 
@@ -596,17 +610,40 @@ function App() {
   //  check;
 
   return (
+    //  Ts in Redux
+
     <>
       <div>
         <h1>Todo List</h1>
-        <AddTodoForm onAdd={addTodo} />
+        <AddTodoForm onAdd={(text) => dispatch(addTodo(text))} />
         <ul>
           {todos.map((todo) => (
-            <TodoItem key={todo.id} todo={todo} onDelete={deleteTodo} />
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              onDelete={(id) => dispatch(deleteToto(id))}
+            />
           ))}
         </ul>
       </div>
     </>
+
+    //  Ts in Redux
+
+    //  Native ts in react
+    // <>
+    //   <div>
+    //     <h1>Todo List</h1>
+    //     <AddTodoForm onAdd={addTodo} />
+    //     <ul>
+    //       {todos.map((todo) => (
+    //         <TodoItem key={todo.id} todo={todo} onDelete={deleteTodo} />
+    //       ))}
+    //     </ul>
+    //   </div>
+    // </>
+
+    //  Native ts in react
   );
 }
 
