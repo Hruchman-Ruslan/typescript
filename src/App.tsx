@@ -206,8 +206,16 @@ import TodoItem from "./module-03/TodoItem";
 import { RootState } from "./module-03/redux/store";
 import { addTodo, deleteToto } from "./module-03/redux/todoSlice";
 import { useSelector, useDispatch } from "react-redux";
+import ExampleImport from "./module-04/exampleImport";
+import { UserType } from "./module-04/types";
 // import { auto } from "./module-03/ExampleClass";
 //
+
+const userExample: UserType = {
+  id: 1,
+  name: "Jon",
+  email: "mail@example.com",
+};
 
 // type Task = {
 //   id: number;
@@ -607,6 +615,7 @@ function App() {
   // console.log("User Profile:", userProfile);
   // State
   // order.proceedToNext();
+  // Module-04
   //  check;
 
   return (
@@ -626,6 +635,8 @@ function App() {
           ))}
         </ul>
       </div>
+      <div>Module-04</div>
+      <ExampleImport userExample={userExample} />
     </>
 
     //  Ts in Redux
