@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useReducer, useEffect } from "react";
 import { FocusableInput, FocusableInputRef } from "./FocusableInput";
 import { ForwardedPaymentForm, PaymentFormHandleRef } from "./PaymentForm";
 
@@ -182,6 +182,158 @@ export function CheckoutPage() {
     <div>
       <ForwardedPaymentForm ref={paymentFormRef} />
       <button onClick={handlePaymentSubmit}>Submit Payment</button>
+    </div>
+  );
+}
+
+// useReducer
+
+// step-01
+
+// type State = {
+//   count: number;
+// };
+
+// type Action = { type: "increment" } | { type: "decrement" };
+
+// function reducer(state: State, action: Action): State {
+//   switch (action.type) {
+//     case "increment":
+//       return { count: state.count + 1 };
+//     case "decrement":
+//       return { count: state.count - 1 };
+//     default:
+//       throw new Error();
+//   }
+// }
+
+// step-02
+
+// const initialState: State = { count: 0 };
+
+// function Counter() {
+//   const [state, dispatch] = useReducer(reducer, initialState);
+//   // ...
+// }
+
+// step-03
+
+// type UserReducer = {
+//   id: string;
+//   name: string;
+//   email: string;
+// };
+
+// type StateReducer = {
+//   loading: boolean;
+//   error: string | null;
+//   user: UserReducer | null;
+// };
+
+// type ActionReducer =
+//   | { type: "LOADING" }
+//   | { type: "SUCCESS"; payload: UserReducer }
+//   | { type: "ERROR"; error: string };
+
+// function reducerNext(state: StateReducer, action: ActionReducer): StateReducer {
+//   switch (action.type) {
+//     case "LOADING":
+//       return { ...state, loading: true, error: null };
+//     case "SUCCESS":
+//       return { loading: false, error: null, user: action.payload };
+//     case "ERROR":
+//       return { ...state, loading: false, error: action.error };
+//     default:
+//       throw new Error();
+//   }
+// }
+
+// const initialStateNext: StateReducer = {
+//   loading: false,
+//   error: null,
+//   user: null,
+// };
+
+// function UserLoader() {
+//   const [state, dispatch] = useReducer(reducerNext, initialStateNext);
+//   // ...
+// }
+
+// dispatch({ type: "LOADING" }); // OK
+// dispatch({
+//   type: "SUCCESS",
+//   payload: { id: "1", name: "John", email: "john@example.com" },
+// }); // OK
+// dispatch({ type: "ERROR", error: "Failed to load user" }); // OK
+// dispatch({ type: "SUCCESS" }); // Error, payload is missing
+// dispatch({ type: "ERROR" }); // Error, error is missing
+
+// result
+
+type User = {
+  id: number;
+  name: string;
+  email: string;
+};
+
+type State = {
+  loading: boolean;
+  error: string | null;
+  user: User | null;
+};
+
+type Action =
+  | { type: "LOADING" }
+  | { type: "SUCCESS"; payload: User }
+  | { type: "ERROR"; error: string };
+
+function reducer(state: State, action: Action): State {
+  switch (action.type) {
+    case "LOADING":
+      return { ...state, loading: true, error: null };
+    case "SUCCESS":
+      return { loading: false, error: null, user: action.payload };
+    case "ERROR":
+      return { ...state, loading: false, error: action.error };
+    default:
+      throw new Error();
+  }
+}
+
+const initialState: State = {
+  loading: false,
+  error: null,
+  user: null,
+};
+
+export function UserLoading() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      dispatch({ type: "LOADING" });
+
+      try {
+        const response = await fetch("/api/user");
+        const user = await response.json();
+
+        dispatch({ type: "SUCCESS", payload: user });
+      } catch (error) {
+        dispatch({ type: "ERROR", error: (error as Error).message });
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  if (state.loading) return <div>Loading...</div>;
+  if (state.error) return <div>{state.error}</div>;
+  if (!state.user) return null;
+
+  return (
+    <div>
+      <p>{state.user.name}</p>
+      <p>{state.user.email}</p>
     </div>
   );
 }
