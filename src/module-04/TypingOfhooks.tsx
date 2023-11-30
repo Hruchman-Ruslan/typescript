@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { FocusableInput, FocusableInputRef } from "./FocusableInput";
+import { ForwardedPaymentForm, PaymentFormHandleRef } from "./PaymentForm";
 
 // useState
 
@@ -144,3 +146,42 @@ export function ComponentWithRefIncrement() {
 }
 
 // useImperativeHandle
+
+// step-01
+
+export function OtherComponent() {
+  const inputRef = useRef<FocusableInputRef>(null);
+
+  const handleClick = () => {
+    if (inputRef.current) inputRef.current.focus;
+  };
+
+  return (
+    <>
+      <FocusableInput ref={inputRef} initialText="Hello" />
+      <button onClick={handleClick}>Set Focus</button>
+    </>
+  );
+}
+
+// step-02
+
+export function CheckoutPage() {
+  const paymentFormRef = useRef<PaymentFormHandleRef>(null);
+
+  const handlePaymentSubmit = async () => {
+    if (!paymentFormRef.current) {
+      return;
+    }
+
+    const data = await paymentFormRef.current.submit();
+    console.log(data);
+  };
+
+  return (
+    <div>
+      <ForwardedPaymentForm ref={paymentFormRef} />
+      <button onClick={handlePaymentSubmit}>Submit Payment</button>
+    </div>
+  );
+}
