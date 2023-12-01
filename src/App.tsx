@@ -208,6 +208,8 @@ import { addTodo, deleteToto } from "./module-03/redux/todoSlice";
 import { useSelector, useDispatch } from "react-redux";
 import ExampleImport from "./module-04/exampleImport";
 import { UserType } from "./module-04/types";
+import { UserProvider } from "./module-04/UserProvider";
+import { UserProfile } from "./module-04/TypingOfhooks";
 // import { auto } from "./module-03/ExampleClass";
 //
 
@@ -637,6 +639,10 @@ function App() {
       </div>
       <div>Module-04</div>
       <ExampleImport userExample={userExample} />
+      {/* // UseContext */}
+      <UserProvider>
+        <UserProfile />
+      </UserProvider>
     </>
 
     //  Ts in Redux
