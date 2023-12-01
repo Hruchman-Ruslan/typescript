@@ -1,4 +1,11 @@
-import { useState, useRef, useReducer, useEffect } from "react";
+import {
+  useState,
+  useRef,
+  useReducer,
+  useEffect,
+  // useCallback,
+  useMemo,
+} from "react";
 import { FocusableInput, FocusableInputRef } from "./FocusableInput";
 import { ForwardedPaymentForm, PaymentFormHandleRef } from "./PaymentForm";
 import { useUserState } from "./UserProvider";
@@ -362,6 +369,65 @@ export function UserProfile() {
     <div>
       <h1>{user.name}</h1>
       <p>{user.email}</p>
+    </div>
+  );
+}
+
+// Hooks that usually don't need to be typed
+
+// useEffect
+
+// step-01
+
+// useEffect((): void | (() => void) => {
+//   let isActive = true;
+
+//   return (): void => {
+//     isActive = false;
+//   };
+// }, []);
+
+// step-02 The same
+
+// useEffect(() => {
+//   let isActive = true;
+
+//   return (): void => {
+//     isActive = false;
+//   };
+// }, []);
+
+//  useCallback
+
+// const [useCallbackCount, setUseCallbackCount] = useState(0);
+
+// const incrementUseCallback = useCallback((step = 1) => {
+//   setUseCallbackCount((c) => c + step);
+// }, []);
+
+// useMemo
+
+type UserUseMemo = {
+  id: number;
+  name: string;
+};
+
+type PropsUseMemo = {
+  users: UserUseMemo[];
+  selectedUserId: number;
+};
+
+export function UserList({ users, selectedUserId }: PropsUseMemo) {
+  const selectedUser = useMemo(() => {
+    return users.find((user) => user.id !== selectedUserId);
+  }, [users, selectedUserId]);
+
+  return (
+    <div>
+      {selectedUser && <p>Selected user is {selectedUser.name}</p>}
+      {users.map((user) => (
+        <p key={user.id}>{user.name}</p>
+      ))}
     </div>
   );
 }
